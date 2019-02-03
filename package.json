@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "heroku-postbuild": "yarn global add @vue/cli && yarn build"
+    "heroku-postbuild": "yarn global add @vue/cli && yarn serve"
   },
   "dependencies": {
     "@mdi/font": "^3.4.93",
