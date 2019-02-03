@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "node server.js",
+    "postinstall": "yarn build",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "heroku-postbuild": "yarn global add @vue/cli && yarn serve"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@mdi/font": "^3.4.93",
+    "express": "^4.16.4",
     "material-design-icons-iconfont": "^4.0.4",
+    "serve-static": "^1.13.2",
     "vue": "^2.5.22",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
