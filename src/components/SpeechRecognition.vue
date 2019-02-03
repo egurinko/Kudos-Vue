@@ -23,14 +23,24 @@ export default class HelloWorld extends Vue {
   public isListening!: boolean;
 
   private transcripts: string[] = [];
+  private intervalId?: number;
 
   @Watch("isListening")
   public isListeningOn() {
+    console.log("ISLISTENING", this.isListening);
     if (this.isListening) {
       alert("音声をテキストに変化させます");
 
       const constraint = { audio: true };
       navigator.getUserMedia(constraint, this.handleSuccess, this.handleError);
+    } else {
+      alert("終了します");
+      console.log(this.intervalId);
+      recognition.stop();
+      transcript = "";
+      processScript = "";
+
+      clearInterval(this.intervalId);
     }
   }
 
@@ -46,6 +56,8 @@ export default class HelloWorld extends Vue {
 
       transcript = "";
     }, 5000);
+
+    this.intervalId = intervalSpeechId;
 
     this.handleSpeech();
   }
@@ -76,7 +88,8 @@ export default class HelloWorld extends Vue {
       }
     };
 
-    recognition.onend = function() {
+    recognition.onend = () => {
+      const isListening = this.isListening;
       if (isListening) {
         recognition.start();
       }

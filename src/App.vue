@@ -34,7 +34,8 @@ export default class App extends Vue {
   public isListening: boolean = false;
 
   public handleMicClick() {
-    this.isListening = true;
+    this.isListening = !this.isListening;
+    console.log(this.isListening);
   }
 }
 </script>
