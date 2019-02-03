@@ -1,31 +1,40 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <Navbar></Navbar>
+    <v-card>
+      <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
+
+      <v-card-title primary-title>
+        <div>
+          <SpeechRecognition :isListening="isListening"/>
+        </div>
+      </v-card-title>
+
+      <v-card-actions>
+        <Microphone :isListening="isListening" @clicked="handleMicClick"/>
+      </v-card-actions>
+    </v-card>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import Navbar from "@/components/Navbar.vue";
+import SpeechRecognition from "@/components/SpeechRecognition.vue";
+import Microphone from "@/components/Microphone.vue";
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+@Component({
+  components: {
+    SpeechRecognition,
+    Navbar,
+    Microphone
+  }
+})
+export default class App extends Vue {
+  public isListening: boolean = false;
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+  public handleMicClick() {
+    this.isListening = true;
+  }
 }
-</style>
+</script>
