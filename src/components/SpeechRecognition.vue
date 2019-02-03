@@ -27,7 +27,6 @@ export default class HelloWorld extends Vue {
 
   @Watch("isListening")
   public isListeningOn() {
-    console.log("ISLISTENING", this.isListening);
     if (this.isListening) {
       alert("音声をテキストに変化させます");
 
@@ -35,7 +34,6 @@ export default class HelloWorld extends Vue {
       navigator.getUserMedia(constraint, this.handleSuccess, this.handleError);
     } else {
       alert("終了します");
-      console.log(this.intervalId);
       recognition.stop();
       transcript = "";
       processScript = "";

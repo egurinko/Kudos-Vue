@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <Navbar></Navbar>
-    <v-card>
-      <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
+    <v-card class="recognition-container" color="secondary">
+      <v-img src="https://picsum.photos/500/750/?random" aspect-ratio="1.5"></v-img>
 
       <v-card-title primary-title>
         <div>
@@ -39,3 +39,19 @@ export default class App extends Vue {
   }
 }
 </script>
+
+<style>
+#app,
+body {
+  background-color: #fefbe8;
+}
+
+p {
+  color: #42675a;
+}
+
+.recognition-container {
+  background-color: #37373f;
+  margin: 104px 40px 40px 40px;
+}
+</style>

@@ -1,14 +1,12 @@
 <template>
-  <v-layout justify-space-around>
-    <v-flex xs12 sm3>
-      <v-btn v-if="!isListening" fab small @click="handleClick">
-        <v-icon medium color="blue darken-2">mdi-microphone</v-icon>
-      </v-btn>
-      <v-btn v-if="isListening" fab small @click="handleClick">
-        <v-icon medium color="blue darken-2">mdi-microphone-off</v-icon>
-      </v-btn>
-    </v-flex>
-  </v-layout>
+  <v-flex align-self-center="true">
+    <v-btn v-if="!isListening" fab small @click="handleClick" color="accent">
+      <v-icon medium color="black">mdi-microphone</v-icon>
+    </v-btn>
+    <v-btn v-if="isListening" fab small @click="handleClick" color="accent">
+      <v-icon medium color="black">mdi-microphone-off</v-icon>
+    </v-btn>
+  </v-flex>
 </template>
 
 <script lang="ts">
@@ -27,3 +25,10 @@ export default class Microphone extends Vue {
   }
 }
 </script>
+
+<style scoped>
+.flex {
+  display: flex;
+  justify-content: center;
+}
+</style>

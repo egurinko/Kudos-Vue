@@ -1,12 +1,8 @@
 <template>
-  <v-toolbar app>
+  <v-toolbar app color="primary">
     <v-flex>
-      <v-img :src="require('../assets/logo.svg')" height="30" width="30"></v-img>
+      <v-img :src="require('../assets/logo.png')" max-width="40"></v-img>
     </v-flex>
-    <v-spacer></v-spacer>
-    <v-btn flat href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
-      <span class="mr-2">Latest Release</span>
-    </v-btn>
   </v-toolbar>
 </template>
 
@@ -16,3 +12,11 @@ import { Vue, Component } from "vue-property-decorator";
 @Component
 export default class Navbar extends Vue {}
 </script>
+
+<style scoped>
+.flex {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+}
+</style>
